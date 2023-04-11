@@ -5,17 +5,21 @@ namespace App\Controller;
 // use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 // use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use function Symfony\Component\String\u;
 
-class RobTestController 
+class RobTestController extends AbstractController
 {
     #[Route('/')]
-    public function index()
+    public function homepage(): Response
     {
+        return $this->render('Rob/homepage.html.twig',[
+            'title'=>'The homepage content',
+        ]);
         // die('this is the first test');
-        return new Response('HEy whats up?');
+        // return new Response('HEy whats up?');
 
         // return $this->render('rob_test/index.html.twig', [
         //     'controller_name' => 'RobTestController',
